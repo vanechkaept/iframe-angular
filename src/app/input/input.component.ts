@@ -7,4 +7,6 @@ import { Component, VERSION } from '@angular/core';
 })
 export class InputComponent {
 
+  isDisabed = false;
+
 }
