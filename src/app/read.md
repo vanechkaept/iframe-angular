@@ -13,5 +13,3 @@ This is an example site made for the [Add Pages to Your Angular Website Using Ma
 - Run `ng build` to build the project. The build artifacts will be stored in the dist/ directory.
 - Use `ng build --prod` for a production build.
 
-<br>
-<br>

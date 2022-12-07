@@ -1,4 +1,12 @@
-import { Component, ComponentFactoryResolver, ComponentRef, ElementRef, VERSION, ViewChild, ViewContainerRef } from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  ComponentRef,
+  ElementRef,
+  VERSION,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { InputComponent } from './input/input.component';
 
 @Component({
@@ -7,15 +15,19 @@ import { InputComponent } from './input/input.component';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  @ViewChild('iframe', {static: false}) iframe: ElementRef;
+  @ViewChild('iframe', { static: false }) iframe: ElementRef;
+  markdown: string = MARKDOWN;
 
   firstInput = 5;
   doc;
   compRef: ComponentRef<InputComponent>;
 
-  constructor(private vcRef: ViewContainerRef, private resolver: ComponentFactoryResolver) { }
+  constructor(
+    private vcRef: ViewContainerRef,
+    private resolver: ComponentFactoryResolver
+  ) {}
 
-  onLoad(iframe){
+  onLoad(iframe) {
     this.doc = iframe.contentDocument || iframe.contentWindow;
     this.createComponent();
   }
@@ -27,16 +39,21 @@ export class AppComponent {
 
     this.doc.body.appendChild(this.compRef.location.nativeElement);
   }
-
-  markdown = markdown;
 }
 
-const markdown =
-  '##### About This is an example site made for the [Add Pages to Your Angular <br> <br>' +
-  '  Website Using Markdown' +
-  ' Files](https://www.makeuseof.com/angular-markdown-files-website/) tutorial. +##' +
-  'To Run - Run `npm install` in the root directory to add the necessary npm' +
-  'packages to the project. - Once completed, run `ng serve`. - Navigate to' +
-  '`localhost:4200` in a browser. ## To Build - Run `ng build` to build the' +
-  'project. The build artifacts will be stored in the dist/ directory. - Use `ng' +
-  ' build --prod` for a production build.';
+const MARKDOWN = `## Markdown __rulez__!
+---
+
+### Syntax highlight
+\`\`\`typescript
+const language = 'typescript';
+\`\`\`
+
+### Lists
+1. Ordered list
+2. Another bullet point
+   - Unordered list
+   - Another unordered bullet
+
+### Blockquote
+> Blockquote to the max`;

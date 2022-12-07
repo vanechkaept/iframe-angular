@@ -1,12 +1,23 @@
-<p>Start editing to see some magic happen :)</p>
 
-<textarea id="txtid" name="txtname" rows="4" cols="50" maxlength="200">
-  A nice day is a nice day.
-  Lao Tseu
-</textarea>
-asd
+
 <a routerLink="/posts/post/read"></a>
-<p> [StackBliz loader problem] - right click on iframe below and click "Reload Frame" (Chrome)</p>
+<div class='row'>
+  <textarea [(ngModel)]="markdown" ></textarea>
+  <markdown [data]="markdown"></markdown>
+</div>
 
-<iframe style='height: 500px; width: 100%;' #iframe (load)='onLoad(iframe)'></iframe>
-<markdown [data]="markdown"> </markdown>
+
+
+
+<h1 style="margin-top: 50px">Iframe</h1>
+<p>
+  [StackBliz loader problem] - right click on iframe below and click "Reload
+  Frame" (Chrome)
+</p>
+<iframe
+  style="height: 200px; width: 100%;"
+  #iframe
+  (load)="onLoad(iframe)"
+></iframe>
+
+<!-- <markdown> {{ markdown }}</markdown> -->
